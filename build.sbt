@@ -2,7 +2,7 @@ import sbt._
 import sbt.Keys._
 
 lazy val rainRadar =  (project in file("."))
-    .enablePlugins(CloudflowAkkaStreamsApplicationPlugin)
+    .enablePlugins(CloudflowApplicationPlugin, CloudflowAkkaPlugin)
     .settings(
       libraryDependencies ++= Seq(
         "com.typesafe.akka"      %% "akka-http-spray-json"      % "10.1.10",
@@ -11,7 +11,7 @@ lazy val rainRadar =  (project in file("."))
       name := "rain-radar",
       organization := "com.github.jeroenr",
 
-      scalaVersion := "2.12.10",
+      scalaVersion := "2.12.13",
       crossScalaVersions := Vector(scalaVersion.value),
       scalacOptions ++= Seq(
         "-encoding", "UTF-8",
